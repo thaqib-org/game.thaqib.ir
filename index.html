@@ -24,6 +24,40 @@
 </head>
 
 <body>
+  <script>
+    function validateForm() {
+      const nameInput = document.getElementById('name');
+      const phoneInput = document.getElementById('phone');
+      let isValid = true;
+  
+      // Validate name input
+      if (nameInput.value.length < 3) {
+        nameInput.classList.add('border', 'border-red-500');
+        isValid = false;
+      } else {
+        nameInput.classList.remove('border', 'border-red-500');
+      }
+  
+      // Validate phone input
+      const phoneRegex = /^09\d{9}$/;
+      if (!phoneRegex.test(phoneInput.value)) {
+        phoneInput.classList.add('border', 'border-red-500');
+        isValid = false;
+      } else {
+        phoneInput.classList.remove('border', 'border-red-500');
+      }
+  
+      if (!isValid) {
+        // Show error message
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.classList.remove('hidden');
+      } else {
+        // Submit form
+        hideForm();
+      }
+    }
+  </script>
+  
   <div class="game"></div>
   <div id="endGameStats" class="fullSizeContainer">
     <h1 id="description" dir="rtl"></h1>
@@ -90,22 +124,23 @@
 
     <div id="myForm">
       <div class="flex flex-col justify-center items-center h-screen">
+        
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="name">
-              Name
+              نام و نام خانوادگی
             </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="name" type="text" placeholder="John Doe">
+              id="name" type="text" dir="rtl" placeholder="علی" required>
           </div>
           <div class="mb-6">
             <label class="block text-gray-700 font-bold mb-2" for="phone">
-              Phone Number
+              (منتشر نمیشود) شماره تماس
             </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="phone" type="text" placeholder="(123) 456-7890">
+              id="phone" type="text" dir="ltr" placeholder="09XXXXXXXXX" required>
           </div>
           <div class="flex items-center justify-center">
             <button onclick="hideForm()"
@@ -115,6 +150,7 @@
             </button>
           </div>
         </form>
+        
       </div>
     </div>
 
