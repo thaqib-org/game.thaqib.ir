@@ -47,12 +47,12 @@ li.strikethrough {
 .fullSizeContainer.instructions {
   justify-content: space-between;
   text-align: center;
-  /* pointer-events: none; */
-}
-
-.pe {
   pointer-events: none;
 }
+
+/* .pe { */
+/*   pointer-events: none; */
+/* } */
 
 .fullSizeContainer.show {
   display: flex;
