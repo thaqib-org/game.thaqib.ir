@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Minimal Form</title>
+</head>
+
+<body>
+
+    <form id="myForm" onsubmit="return false;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone"><br>
+
+        <button onclick="hideForm()">Submit</button>
+    </form>
+
+    <script>
+        function hideForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

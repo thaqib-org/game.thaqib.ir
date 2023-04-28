@@ -1,119 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Thaqib 2023 Astronomy Fair</title>
-    <meta property="og:title" content="Thaqib 2023 Astronomy Fair" />
-    <meta property="og:url" content="https://game.thaqib.ir/" />
-    <meta
-      name="description"
-      content="جشنواره روز جهانی نجوم سال 1402"
-    />
-    <meta
-      property="og:description"
-      content="جشنواره روز جهانی نجوم سال 1402"
-    />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/thaqib-org/game.thaqib.ir/master/images/oembed.png"
-    />
-    <meta property="og:image:width" content="700" />
-    <meta property="og:image:height" content="700" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="./images/favicon-16x16.png"
-      sizes="16x16"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="./images/favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="./images/favicon-180x180.png"
-      sizes="180x180"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="./images/favicon-270x270.png"
-      sizes="270x270"
-    />
-    <link rel="apple-touch-icon" href="./images/favicon-270x270.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-  </head>
-  <body>
-    <div class="game"></div>
-    <div id="endGameStats" class="fullSizeContainer">
-      <h1 id="description"></h1>
-      <div class="scoreContainer">
-        <span id="score"></span> point <span id="type"></span>
-      </div>
-      <div class="meterAndLabel">
-        <div class="label">Speed</div>
-        <div class="meter" data-stat-name="speed">
-          <div class="cursor" data-percent-position="">
-            <span data-value=""></span> <span class="unit"> MPH</span>
-          </div>
-        </div>
-      </div>
-      <div class="meterAndLabel">
-        <div class="label">Angle</div>
-        <div class="meter" data-stat-name="angle">
-          <div class="cursor" data-percent-position="">
-            <span data-value=""></span> <span class="unit">&#176;</span>
-          </div>
-        </div>
-      </div>
-      <div class="statsTable">
-        <div class="tableRow">
-          <span class="tableLabel">Time</span>
-          <span class="tableValue"><span id="duration"></span> seconds</span>
-        </div>
-        <div class="tableRow">
-          <span class="tableLabel">Flips</span>
-          <span class="tableValue" id="rotations"></span>
-        </div>
-        <div class="tableRow">
-          <span class="tableLabel">Max Speed</span>
-          <span class="tableValue"><span id="maxSpeed"></span> MPH</span>
-        </div>
-        <div class="tableRow">
-          <span class="tableLabel">Max Height</span>
-          <span class="tableValue"><span id="maxHeight"></span> FT</span>
-        </div>
-      </div>
-      <div class="buttonContainer">
-        <div class="button loading" id="tryAgain">
-          <span id="tryAgainText">Play Again</span>
-          <svg class="buttonAnimatedBorder">
-            <rect width="100%" height="100%"></rect>
-          </svg>
-        </div>
-        <div class="button" id="share">
-          <span>Share</span>
-          <svg class="buttonBorder">
-            <rect width="100%" height="100%"></rect>
-          </svg>
-        </div>
-        <div class="button" id="copyText">
-          <span>Copy Stats</span>
-          <svg class="buttonBorder">
-            <rect width="100%" height="100%"></rect>
-          </svg>
+
+<head>
+  <title>Thaqib 2023 Astronomy Fair</title>
+  <meta property="og:title" content="Thaqib 2023 Astronomy Fair" />
+  <meta property="og:url" content="https://game.thaqib.ir/" />
+  <meta name="description" content="جشنواره روز جهانی نجوم سال 1402" />
+  <meta property="og:description" content="جشنواره روز جهانی نجوم سال 1402" />
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/thaqib-org/game.thaqib.ir/master/images/oembed.png" />
+  <meta property="og:image:width" content="700" />
+  <meta property="og:image:height" content="700" />
+  <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./images/favicon-180x180.png" sizes="180x180" />
+  <link rel="icon" type="image/png" href="./images/favicon-270x270.png" sizes="270x270" />
+  <link rel="apple-touch-icon" href="./images/favicon-270x270.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+
+<body>
+  <div class="game"></div>
+  <div id="endGameStats" class="fullSizeContainer">
+    <h1 id="description"></h1>
+    <div class="scoreContainer">
+      <span id="score"></span> point <span id="type"></span>
+    </div>
+    <div class="meterAndLabel">
+      <div class="label">Speed</div>
+      <div class="meter" data-stat-name="speed">
+        <div class="cursor" data-percent-position="">
+          <span data-value=""></span> <span class="unit"> MPH</span>
         </div>
       </div>
     </div>
-    <div id="instructions" class="fullSizeContainer instructions">
+    <div class="meterAndLabel">
+      <div class="label">Angle</div>
+      <div class="meter" data-stat-name="angle">
+        <div class="cursor" data-percent-position="">
+          <span data-value=""></span> <span class="unit">&#176;</span>
+        </div>
+      </div>
+    </div>
+    <div class="statsTable">
+      <div class="tableRow">
+        <span class="tableLabel">Time</span>
+        <span class="tableValue"><span id="duration"></span> seconds</span>
+      </div>
+      <div class="tableRow">
+        <span class="tableLabel">Flips</span>
+        <span class="tableValue" id="rotations"></span>
+      </div>
+      <div class="tableRow">
+        <span class="tableLabel">Max Speed</span>
+        <span class="tableValue"><span id="maxSpeed"></span> MPH</span>
+      </div>
+      <div class="tableRow">
+        <span class="tableLabel">Max Height</span>
+        <span class="tableValue"><span id="maxHeight"></span> FT</span>
+      </div>
+    </div>
+    <div class="buttonContainer">
+      <div class="button loading" id="tryAgain">
+        <span id="tryAgainText">Play Again</span>
+        <svg class="buttonAnimatedBorder">
+          <rect width="100%" height="100%"></rect>
+        </svg>
+      </div>
+      <div class="button" id="share">
+        <span>Share</span>
+        <svg class="buttonBorder">
+          <rect width="100%" height="100%"></rect>
+        </svg>
+      </div>
+      <div class="button" id="copyText">
+        <span>Copy Stats</span>
+        <svg class="buttonBorder">
+          <rect width="100%" height="100%"></rect>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div id="instructions" class="fullSizeContainer instructions">
+
+    <div id="myForm">
+      <div class="flex flex-col justify-center items-center h-screen">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="name">
+              Name
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="name" type="text" placeholder="John Doe">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 font-bold mb-2" for="phone">
+              Phone Number
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="phone" type="text" placeholder="(123) 456-7890">
+          </div>
+          <div class="flex items-center justify-center">
+            <button onclick="hideForm()"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="pe">
       <div>
         <h1>How to play</h1>
         <p>
@@ -145,42 +150,46 @@
         </div>
       </div>
     </div>
-    <div id="cornerChallenge" class="topLeftCorner show">
-      Daily Challenge <span id="cornerChallengeNumber"></span>
-    </div>
-    <div id="tally" class="topRightCorner">
-      L<span id="landingTotal"></span> C<span id="crashTotal"></span>
-    </div>
-    <script src="index.js" type="module"></script>
-    <script>
-      (function (h, o, u, n, d) {
-        h = h[d] = h[d] || {
-          q: [],
-          onReady: function (c) {
-            h.q.push(c);
-          },
-        };
-        d = o.createElement(u);
-        d.async = 1;
-        d.src = n;
-        n = o.getElementsByTagName(u)[0];
-        n.parentNode.insertBefore(d, n);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.datadoghq-browser-agent.com/datadog-rum-v4.js",
-        "DD_RUM"
-      );
-      DD_RUM.onReady(function () {
-        DD_RUM.init({
-          clientToken: "pub29b4ec61338ff64383116ae4bf1b2e48",
-          applicationId: "4c09e9e3-7012-4576-bbeb-9a81a5c7b9e7",
-          site: "datadoghq.com",
-          sessionSampleRate: 100,
-          trackUserInteractions: true,
-        });
+  </div>
+
+  <div id="cornerChallenge" class="topLeftCorner show">
+    Daily Challenge <span id="cornerChallengeNumber"></span>
+  </div>
+  <div id="tally" class="topRightCorner">
+    L<span id="landingTotal"></span> C<span id="crashTotal"></span>
+  </div>
+  <script src="index.js" type="module"></script>
+  <script>
+    (function (h, o, u, n, d) {
+      h = h[d] = h[d] || {
+        q: [],
+        onReady: function (c) {
+          h.q.push(c);
+        },
+      };
+      d = o.createElement(u);
+      d.async = 1;
+      d.src = n;
+      n = o.getElementsByTagName(u)[0];
+      n.parentNode.insertBefore(d, n);
+    })(
+      window,
+      document,
+      "script",
+      "https://www.datadoghq-browser-agent.com/datadog-rum-v4.js",
+      "DD_RUM"
+    );
+    DD_RUM.onReady(function () {
+      DD_RUM.init({
+        clientToken: "pub29b4ec61338ff64383116ae4bf1b2e48",
+        applicationId: "4c09e9e3-7012-4576-bbeb-9a81a5c7b9e7",
+        site: "datadoghq.com",
+        sessionSampleRate: 100,
+        trackUserInteractions: true,
       });
-    </script>
-  </body>
+    });
+  </script>
+  <script src="form.js"></script>
+</body>
+
 </html>

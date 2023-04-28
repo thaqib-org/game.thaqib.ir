@@ -47,6 +47,10 @@ li.strikethrough {
 .fullSizeContainer.instructions {
   justify-content: space-between;
   text-align: center;
+  /* pointer-events: none; */
+}
+
+.pe {
   pointer-events: none;
 }
 
@@ -62,7 +66,7 @@ li.strikethrough {
   margin: 0;
 }
 
-.fullSizeContainer h1 + p {
+.fullSizeContainer h1+p {
   margin-top: 0.6em;
 }
 
@@ -79,7 +83,7 @@ li.strikethrough {
     font-weight: 800;
   }
 
-  .fullSizeContainer h1 + p {
+  .fullSizeContainer h1+p {
     margin-top: 0;
   }
 
@@ -128,9 +132,7 @@ li.strikethrough {
   width: var(--cursor-size);
   height: var(--cursor-size);
   background: white;
-  top: calc(
-    -1 * var(--cursor-size) - ((var(--meter-height) - var(--cursor-size)) / 2)
-  );
+  top: calc(-1 * var(--cursor-size) - ((var(--meter-height) - var(--cursor-size)) / 2));
   left: calc(50% - var(--cursor-size) / 2);
   position: absolute;
   border-radius: var(--cursor-size);
