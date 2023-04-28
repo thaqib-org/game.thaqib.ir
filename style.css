@@ -50,9 +50,9 @@ li.strikethrough {
   pointer-events: none;
 }
 
-/* .pe { */
-/*   pointer-events: none; */
-/* } */
+.pe {
+  pointer-events: auto;
+}
 
 .fullSizeContainer.show {
   display: flex;
