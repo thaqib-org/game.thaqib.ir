@@ -29,7 +29,7 @@
       const nameInput = document.getElementById('name');
       const phoneInput = document.getElementById('phone');
       let isValid = true;
-  
+
       // Validate name input
       if (nameInput.value.length < 3) {
         nameInput.classList.add('border', 'border-red-500');
@@ -37,7 +37,7 @@
       } else {
         nameInput.classList.remove('border', 'border-red-500');
       }
-  
+
       // Validate phone input
       const phoneRegex = /^09\d{9}$/;
       if (!phoneRegex.test(phoneInput.value)) {
@@ -46,7 +46,7 @@
       } else {
         phoneInput.classList.remove('border', 'border-red-500');
       }
-  
+
       if (!isValid) {
         // Show error message
         const errorMessage = document.getElementById('error-message');
@@ -57,7 +57,7 @@
       }
     }
   </script>
-  
+
   <div class="game"></div>
   <div id="endGameStats" class="fullSizeContainer">
     <h1 id="description" dir="rtl"></h1>
@@ -124,8 +124,8 @@
 
     <div id="myForm">
       <div class="flex flex-col justify-center items-center h-screen">
-        
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onsubmit="event.preventDefault(); validateForm();">
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="name">
               نام و نام خانوادگی
@@ -133,6 +133,7 @@
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name" type="text" dir="rtl" placeholder="علی" required>
+            <p id="name-error" class="hidden text-red-500">نام و نام خانوادگی باید بیشتر از ۳ حرف باشد.</p>
           </div>
           <div class="mb-6">
             <label class="block text-gray-700 font-bold mb-2" for="phone">
@@ -141,16 +142,18 @@
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="phone" type="text" dir="ltr" placeholder="09XXXXXXXXX" required>
+            <p id="phone-error" class="hidden text-red-500">شماره تلفن باید ۱۱ رقم باشد و با ۰۹ شروع شود.</p>
           </div>
           <div class="flex items-center justify-center">
-            <button onclick="hideForm()"
+            <button
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button">
+              type="submit">
               Submit
             </button>
           </div>
+          <p id="error-message" class="hidden text-red-500">لطفا فیلدهای خالی یا اطلاعات نامعتبر را تصحیح کنید.</p>
         </form>
-        
+
       </div>
     </div>
 
