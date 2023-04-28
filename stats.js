@@ -57,8 +57,8 @@ ${data.speed}mph | ${data.angle}° | ${data.rotationsFormatted} flip${
     document.querySelector("#description").textContent = data.scoreDescription;
     document.querySelector("#score").textContent = data.scoreForDisplay;
     document.querySelector("#type").textContent = data.landed
-      ? "landing"
-      : "crash";
+      ? "فرود موفق"
+      : "تصادف";
     populateMeter("speed", data.speedPercent, data.speed);
     populateMeter("angle", data.anglePercent, data.angle);
 
