@@ -94,31 +94,21 @@ export const scoreLanding = (angle, speed) => {
     angle + speed * VELOCITY_MULTIPLIER
   ) * 100;
 
-  fetch('https://game.thaqib.ir/api/v1/', {
+  var formdata = new FormData();
+  formdata.append("fullname", window.name);
+  formdata.append("phone", window.phone);
+  formdata.append("score", score);
+
+  var requestOptions = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      data: {
-        'fullname': window.name,
-        'phone': window.phone,
-        'score': score,
-      }
-    })
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
+    body: formdata,
+    redirect: 'follow'
+  };
+
+  fetch("https://game.thaqib.ir/api/v1/", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
   return (
     score
@@ -137,31 +127,21 @@ export const scoreCrash = (angle, speed) => {
     angle + speed * VELOCITY_MULTIPLIER
   ) * 100;
 
-  fetch('https://game.thaqib.ir/api/v1/', {
+  var formdata = new FormData();
+  formdata.append("fullname", window.name);
+  formdata.append("phone", window.phone);
+  formdata.append("score", score);
+
+  var requestOptions = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      data: {
-        'fullname': window.name,
-        'phone': window.phone,
-        'score': score,
-      }
-    })
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
+    body: formdata,
+    redirect: 'follow'
+  };
+
+  fetch("https://game.thaqib.ir/api/v1/", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
   return (
     score
