@@ -94,17 +94,31 @@ export const scoreLanding = (angle, speed) => {
     angle + speed * VELOCITY_MULTIPLIER
   ) * 100;
 
-  fetch("https://game.thaqib.ir/api/v1/", {
-    method: "POST",
-    body: JSON.stringify({
-      fullname: window.name,
-      phone: window.phone,
-      score: score
-    }),
+  fetch('https://game.thaqib.ir/api/v1/', {
+    method: 'POST',
     headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      data: {
+        'fullname': window.name,
+        'phone': window.phone,
+        'score': score,
+      }
+    })
   })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
 
   return (
     score
@@ -123,17 +137,31 @@ export const scoreCrash = (angle, speed) => {
     angle + speed * VELOCITY_MULTIPLIER
   ) * 100;
 
-  fetch("https://game.thaqib.ir/api/v1/", {
-    method: "POST",
-    body: JSON.stringify({
-      fullname: window.name,
-      phone: window.phone,
-      score: score
-    }),
+  fetch('https://game.thaqib.ir/api/v1/', {
+    method: 'POST',
     headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      data: {
+        'fullname': window.name,
+        'phone': window.phone,
+        'score': score,
+      }
+    })
   })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
 
   return (
     score
